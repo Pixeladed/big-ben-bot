@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "esbuild src/main.ts --bundle --outfile=build/main.js --platform=node",
     "dev": "npm run build -- --watch",
-    "start": "node -r dotenv/register build/main"
+    "start": "node -r dotenv/config build/main"
   },
   "license": "ISC",
   "devDependencies": {
