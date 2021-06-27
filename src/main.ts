@@ -13,10 +13,14 @@ async function main() {
   if (shouldPlaySound(voiceChannel)) {
     await playInChannel(voiceChannel, config.SOUND_FILE_NAME);
   }
+  exit();
 }
 
 function shouldPlaySound(channel: GuildChannel) {
-  return !!channel.members.size;
+  console.log('Checking if sound should be played');
+  const result = !!channel.members.size;
+  console.log('Should be played:', result);
+  return result;
 }
 
 function exit() {
