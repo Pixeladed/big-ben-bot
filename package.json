@@ -1,0 +1,12 @@
+{
+  "name": "big-ben-bot",
+  "version": "1.0.0",
+  "author": "Pixeladed",
+  "description": "Big Ben Bot for Discord",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
