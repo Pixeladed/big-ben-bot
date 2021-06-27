@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "lib": ["ESNEXT"],
+    "noImplicitAny": true
+  }
+}
