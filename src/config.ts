@@ -6,5 +6,5 @@ function ensure(value: string | undefined): string {
 }
 
 export const config = {
-  botToken: ensure(process.env.BOT_TOKEN),
+  BOT_TOKEN: ensure(process.env.BOT_TOKEN),
 }
