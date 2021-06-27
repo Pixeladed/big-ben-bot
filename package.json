@@ -10,7 +10,12 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^15.12.5",
     "esbuild": "^0.12.9",
     "typescript": "^4.3.4"
+  },
+  "dependencies": {
+    "@discordjs/opus": "^0.5.3",
+    "discord.js": "^12.5.3"
   }
 }
