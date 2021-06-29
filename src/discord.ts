@@ -15,16 +15,10 @@ export async function login(client: Client, token: string) {
   }
 }
 
-export async function fetchVoiceChannel(
-  client: Client,
-  options: {
-    guildId: string;
-    channelId: string;
-  }
-) {
+export async function fetchVoiceChannel(client: Client, channelId: string) {
   try {
     console.log('Fetching channel');
-    const channel = client.channels.cache.get(options.channelId);
+    const channel = client.channels.cache.get(channelId);
     console.log('channels', client.channels.cache);
     console.log('Got channel, checking type');
     if (!isVoiceChannel(channel)) {

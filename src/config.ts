@@ -9,7 +9,6 @@ function ensure(value: string | undefined): string {
 
 export const config = {
   BOT_TOKEN: ensure(process.env.BOT_TOKEN),
-  GUILD_ID: ensure(process.env.GUILD_ID),
   VOICE_CHANNEL_ID: ensure(process.env.VOICE_CHANNEL_ID),
   SOUND_FILE_PATH: path.resolve('src/sound.mp3'),
 };
