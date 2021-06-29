@@ -12,7 +12,7 @@ async function main() {
       channelId: config.VOICE_CHANNEL_ID,
     });
     if (shouldPlaySound(voiceChannel)) {
-      await playInChannel(voiceChannel, config.SOUND_FILE_NAME);
+      await playInChannel(voiceChannel, config.SOUND_FILE_PATH);
     }
   } catch (error) {
     console.error(error);

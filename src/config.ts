@@ -1,3 +1,5 @@
+import * as path from 'path';
+
 function ensure(value: string | undefined): string {
   if (value == undefined) {
     throw new Error('Value does not exist');
@@ -9,5 +11,5 @@ export const config = {
   BOT_TOKEN: ensure(process.env.BOT_TOKEN),
   GUILD_ID: ensure(process.env.GUILD_ID),
   VOICE_CHANNEL_ID: ensure(process.env.VOICE_CHANNEL_ID),
-  SOUND_FILE_NAME: 'sound.mp3',
+  SOUND_FILE_PATH: path.resolve('src/sound.mp3'),
 };
