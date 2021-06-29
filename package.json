@@ -5,10 +5,7 @@
   "description": "Big Ben Bot for Discord",
   "main": "build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "esbuild src/main.ts --bundle --outfile=build/main.js --platform=node",
-    "dev": "npm run build -- --watch",
-    "start": "node -r dotenv/config build/main"
+    "start": "node -r ts-node/register -r dotenv/config src/main"
   },
   "license": "ISC",
   "devDependencies": {
@@ -20,6 +17,7 @@
   "dependencies": {
     "@discordjs/opus": "^0.5.3",
     "discord.js": "^12.5.3",
-    "ffmpeg-static": "^4.4.0"
+    "ffmpeg-static": "^4.4.0",
+    "ts-node": "^10.0.0"
   }
 }
