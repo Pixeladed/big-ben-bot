@@ -8,12 +8,10 @@
     "start": "node -r ts-node/register -r dotenv/config src/main"
   },
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "@types/node": "^15.12.5",
     "dotenv": "^10.0.0",
-    "typescript": "^4.3.4"
-  },
-  "dependencies": {
+    "typescript": "^4.3.4",
     "@discordjs/opus": "^0.5.3",
     "discord.js": "^12.5.3",
     "ffmpeg-static": "^4.4.0",
