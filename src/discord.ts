@@ -19,7 +19,6 @@ export async function fetchVoiceChannel(client: Client, channelId: string) {
   try {
     console.log('Fetching channel');
     const channel = client.channels.cache.get(channelId);
-    console.log('channels', client.channels.cache);
     console.log('Got channel, checking type');
     if (!isVoiceChannel(channel)) {
       throw new Error('Provided channel is not a voice channel');
