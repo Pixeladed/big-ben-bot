@@ -1,9 +1,13 @@
-import { Client, GuildChannel, VoiceChannel } from 'discord.js';
+import { Channel, Client, VoiceChannel } from 'discord.js';
 
 export async function login(client: Client, token: string) {
   try {
     console.log('Logging in');
-    await client.login(token);
+    await new Promise<void>((resolve, reject) => {
+      client.once('ready', resolve);
+      client.once('error', reject);
+      client.login(token);
+    });
     console.log('Logged in');
   } catch (error) {
     console.log('Login failed');
@@ -19,9 +23,9 @@ export async function fetchVoiceChannel(
   }
 ) {
   try {
-    const guild = await fetchGuild(client, options.guildId);
     console.log('Fetching channel');
-    const channel = guild.channels.cache.get(options.channelId);
+    const channel = client.channels.cache.get(options.channelId);
+    console.log('channels', client.channels.cache);
     console.log('Got channel, checking type');
     if (!isVoiceChannel(channel)) {
       throw new Error('Provided channel is not a voice channel');
@@ -34,20 +38,8 @@ export async function fetchVoiceChannel(
   }
 }
 
-function isVoiceChannel(channel: GuildChannel): channel is VoiceChannel {
+function isVoiceChannel(channel: Channel): channel is VoiceChannel {
   return channel.type === 'voice';
-}
-
-async function fetchGuild(client: Client, guildId: string) {
-  try {
-    console.log('Fetching guild');
-    const guild = await client.guilds.fetch(guildId);
-    console.log('Fetched guild');
-    return guild;
-  } catch (error) {
-    console.log('Unable to fetch guild');
-    throw error;
-  }
 }
 
 export async function playInChannel(channel: VoiceChannel, soundPath: string) {
