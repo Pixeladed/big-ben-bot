@@ -16,6 +16,7 @@ async function main() {
     }
   } catch (error) {
     console.error(error);
+    exit(1);
   }
   exit();
 }
@@ -27,9 +28,9 @@ function shouldPlaySound(channel: GuildChannel) {
   return result;
 }
 
-function exit() {
+function exit(code: number = 0) {
   console.log('Exiting');
-  process.exit(0);
+  process.exit(code);
 }
 
 main();
