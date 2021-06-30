@@ -1,5 +1,7 @@
 import { Channel, Client, VoiceChannel } from 'discord.js';
 
+const tts = require('discord-tts');
+
 export async function login(client: Client, token: string) {
   try {
     console.log('Logging in');
@@ -41,11 +43,13 @@ export async function playInChannel(channel: VoiceChannel, soundPath: string) {
     const connection = await channel.join();
     console.log('Joined channel, playing sound');
     const player = new Promise((resolve, reject) => {
-      const stream = connection.play(soundPath);
+      const now = new Date().getUTCHours();
+      const stream = connection.play(tts.getVoiceStream('bing bong'));
       stream.on('error', reject);
       stream.on('finish', resolve);
     });
     await player;
+    connection.play(tts.getVoiceStream('Oi Harry, shut the fuck up'));
     console.log('Finished playing sound, disconnecting');
     connection.disconnect();
     console.log('Disconnected');
