@@ -11,4 +11,5 @@ export const config = {
   BOT_TOKEN: ensure(process.env.BOT_TOKEN),
   VOICE_CHANNEL_ID: ensure(process.env.VOICE_CHANNEL_ID),
   SOUND_FILE_PATH: path.resolve('src/sound.mp3'),
+  SCHEDULE: '1 * * * *', // every hour
 };
