@@ -5,7 +5,9 @@
   "description": "Big Ben Bot for Discord",
   "main": "build/index.js",
   "scripts": {
-    "start": "node -r ts-node/register -r dotenv/config src/main"
+    "execute": "node -r ts-node/register -r dotenv/config",
+    "start": "npm run execute src/cron",
+    "play": "npm run execute src/scripts/playOnce"
   },
   "license": "ISC",
   "dependencies": {
