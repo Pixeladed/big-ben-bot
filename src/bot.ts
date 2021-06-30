@@ -3,7 +3,7 @@ import { fetchVoiceChannel, login, playInChannel } from './discord';
 
 import { config } from './config';
 
-async function main() {
+export async function joinAndPlaySound() {
   try {
     const client = new Client();
     await login(client, config.BOT_TOKEN);
@@ -18,7 +18,6 @@ async function main() {
     console.error(error);
     exit(1);
   }
-  exit();
 }
 
 function shouldPlaySound(channel: GuildChannel) {
@@ -32,8 +31,3 @@ function exit(code: number = 0) {
   console.log('Exiting');
   process.exit(code);
 }
-
-main();
-
-process.on('SIGINT', exit);
-process.on('SIGTERM', exit);
