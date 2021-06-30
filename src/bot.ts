@@ -4,19 +4,19 @@ import { fetchVoiceChannel, login, playInChannel } from './discord';
 import { config } from './config';
 
 export async function joinAndPlaySound() {
-  try {
-    const client = new Client();
-    await login(client, config.BOT_TOKEN);
-    const voiceChannel = await fetchVoiceChannel(
-      client,
-      config.VOICE_CHANNEL_ID
-    );
-    if (shouldPlaySound(voiceChannel)) {
-      await playInChannel(voiceChannel, config.SOUND_FILE_PATH);
-    }
-  } catch (error) {
-    console.error(error);
-    exit(1);
+  console.log('Joining and playing sound');
+  console.log('Creating a client');
+  const client = new Client();
+  console.log('Client created logging in');
+  await login(client, config.BOT_TOKEN);
+  console.log('Logged in, finding voice channel');
+  const voiceChannel = await fetchVoiceChannel(client, config.VOICE_CHANNEL_ID);
+  console.log('Voice channel found, checking if sound should be played');
+  if (shouldPlaySound(voiceChannel)) {
+    console.log('Sound should be played, playing sound');
+    await playInChannel(voiceChannel, config.SOUND_FILE_PATH);
+  } else {
+    console.log('Sound should not be played');
   }
 }
 
