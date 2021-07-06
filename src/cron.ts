@@ -1,15 +1,19 @@
 import { CronJob } from 'cron';
 import { config } from './config';
 import { joinAndPlaySound } from './bot';
+import { logger } from './log';
 
-console.log('Creating cron job');
-const job = new CronJob(config.SCHEDULE, joinAndPlaySound);
-console.log('Cron job created, starting');
+logger.info('Creating cron job');
+const job = new CronJob(config.SCHEDULE, async () => {
+  logger.info('Cron job running');
+  await joinAndPlaySound();
+  logger.success('Cron job finished');
+});
+logger.info('Cron job created, starting');
 job.start();
-console.log('Cron job started');
+logger.success('Cron job started');
 
 process.on('uncaughtException', (error) => {
-  console.log('Uncaught exception thrown, exiting');
-  console.error(error);
+  logger.fatal('Uncaught exception thrown, exiting', error);
   process.exit(1);
 });
