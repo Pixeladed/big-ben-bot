@@ -7,7 +7,10 @@
   "scripts": {
     "execute": "node -r ts-node/register -r dotenv/config",
     "start": "npm run execute src/cron",
-    "play": "npm run execute src/scripts/playOnce"
+    "play": "npm run execute src/scripts/playOnce",
+    "lint:ts": "tsc --noEmit",
+    "lint:style": "prettier --write src/",
+    "lint": "yarn lint:ts && yarn lint:style"
   },
   "license": "ISC",
   "dependencies": {
