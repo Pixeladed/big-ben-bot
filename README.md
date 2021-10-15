@@ -24,3 +24,7 @@ VOICE_CHANNEL_ID=THE ID OF THE DESIGNATED VOICE CHANNEL
 ```bash
 npm start
 ```
+
+### Deploying on Heroku
+
+A `Procfile` is provided at the root of the codebase for deploying to Heroku. By default it starts a process called `worker` that starts the cron server and execute the bot every hour with credentials taken from the environment which you can manage in Heroku
