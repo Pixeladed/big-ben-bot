@@ -4,6 +4,10 @@ import { fetchVoiceChannel, login, playInChannel } from './discord';
 import { config } from './config';
 import { logger } from './log';
 
+/**
+ * Join the channel specified in the environment (via ./config.ts)
+ * and play an audio file specified in the environment (via ./config.ts)
+ */
 export async function joinAndPlaySound() {
   logger.log('Joining and playing sound');
   logger.log('Creating a client');
@@ -21,6 +25,11 @@ export async function joinAndPlaySound() {
   }
 }
 
+/**
+ * Determines whether or not the audio file should be played given
+ * how many members are currently inside the channel
+ * @returns whether or not the sound should be played
+ */
 function shouldPlaySound(channel: GuildChannel) {
   logger.log('Checking if sound should be played');
   const result = !!channel.members.size;
